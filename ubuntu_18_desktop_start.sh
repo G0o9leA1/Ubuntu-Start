@@ -6,10 +6,10 @@ sudo sed -i -e 's/http:\/\/us.archive/mirror:\/\/mirrors/' -e 's/\/ubuntu\//\/CN
 sudo apt update
 
 # Install common lib
-sudo apt install build-essential curl git
+sudo apt install build-essential curl git -y
 
 # Install vim
-sudo apt install vim
+sudo apt install vim -y
 
 # Install chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp/
@@ -22,7 +22,7 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/v
 sudo apt install code
 
 # Install oh-my-zsh
-sudo apt install zsh
+sudo apt install zsh -y
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
@@ -35,16 +35,16 @@ echo "    . ~/.shell_profile" >> ~/.zshrc
 echo "fi" >> ~/.zshrc
 
 # Install htop
-sudo apt install htop
+sudo apt install htop -y
 
 # Install tmux
-sudo apt install tmux
+sudo apt install tmux -y
 
 # Install Gnome-tweak
-sudo apt install gnome-tweaks
+sudo apt install gnome-tweaks -y
 
 # Java
-sudo apt install openjdk-11-jre
-sudo apt install openjdk-11-jdk
+sudo apt install openjdk-11-jre -y
+sudo apt install openjdk-11-jdk -y
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> ~/.shell_profile
 echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.shell_profile
