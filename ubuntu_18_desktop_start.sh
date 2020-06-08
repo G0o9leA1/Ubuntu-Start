@@ -2,8 +2,8 @@
 
 # Choose fastest APT servers
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-server=$(sudo netselect -s 20 -t 40 $(wget -qO - mirrors.ubuntu.com/CN.txt) | awk '{print $2}' | sed -n '1p' | sed 's#\/#\\/#g')
-sudo sed -i "s/http:\/\/us.archive.ubuntu.com\/ubuntu\//$server/" /etc/apt/sources.list
+sudo sed -i -e 's/http:\/\/us.archive/mirror:\/\/mirrors/' -e 's/\/ubuntu\//\/CN.txt/' /etc/apt/sources.list
+sudo apt update
 
 # Install common lib
 sudo apt install build-essential curl git
