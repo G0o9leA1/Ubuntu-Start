@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Choose fastest APT servers
+set -e
+
+# Using apt mirror protocol
+# CN apt source: https://oss.link/config/apt-mirrors.txt
+# Reference: https://mritd.me/2019/03/19/how-to-set-multiple-apt-mirrors-for-ubuntu/
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-sudo sed -i -e 's/http:\/\/us.archive/mirror:\/\/mirrors/' -e 's/\/ubuntu\//\/CN.txt/' /etc/apt/sources.list
+sudo sed -i -e 's/http:\/\/us.archive.ubuntu.com\/ubuntu\//mirror:\/\/oss.link\/config\/apt-mirrors.txt/' -e 's/http:\/\/us.archive.ubuntu.com\/ubuntu/mirror:\/\/oss.link\/config\/apt-mirrors.txt/' -e 's/http:\/\/security.ubuntu.com\/ubuntu/mirror:\/\/oss.link\/config\/apt-mirrors.txt/' /etc/apt/sources.list
 sudo apt update
 
 # Install common lib
@@ -23,9 +27,8 @@ sudo apt install code
 
 # Install oh-my-zsh
 sudo apt install zsh -y
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+cd && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git && echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 echo "if [ -f ~/.shell_profile ]; then" >> ~/.bashrc
 echo "    . ~/.shell_profile" >> ~/.bashrc
