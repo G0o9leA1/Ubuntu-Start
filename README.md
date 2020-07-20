@@ -1,4 +1,4 @@
-# ubuntu-start
+# Ubuntu-Start
 ## Installation of common libraries and tools on Ubuntu
 * libraries:
     - build-essential
