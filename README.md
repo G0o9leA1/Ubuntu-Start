@@ -25,7 +25,7 @@
 ## Usage:
 * ubuntu-18-amd-desktop  
   ```
-  $ wget https://raw.githubusercontent.com/z1xuan/ubuntu-start/master/ubuntu_18_desktop_start.sh
+  $ wget https://raw.githubusercontent.com/z1xuan/Ubuntu-Start/master/ubuntu_18_desktop_start.sh
   $ chmod +x ubuntu_18_desktop_start.sh
   $ ./ubuntu_18_desktop_start.sh
   ```
